@@ -2,33 +2,17 @@
 __version__ = '0.1'
 import socket, random, cmd
 
+# Things I learned:
+# refactoring, versions, and '__main__'
+# cmd module and class
+# overriding class methods
+# getpass.getuser()
+
 #The encryption algorithm takes a random number and multiplies all of
 #the charachter's ASCII values by it. It gets the key to the other side
 #by sending it squared.
-# print([l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")][:1], [[(s.connect(('8.8.8.8', 53)), s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]]) if l][0][0])
-#client = socket.socket()
-'''class send_commands(cmd.Cmd):
-    prompt = 'Enter command: '
-    def do_exit(self, arg):
-        lenofmsg = str(len(str('stop').encode()))
-        lenofmsg = ('0' * (4-len(lenofmsg))) + str(lenofmsg)
-        client.send(str(lenofmsg).encode())
-        client.send(encode_with_key('stop', key))
-        stop()
-    def do_loggedin(self, arg):
-        lenofmsg = str(len(str('loggedin').encode()))
-        lenofmsg = ('0' * (4-len(lenofmsg))) + str(lenofmsg)
-        client.send(str(lenofmsg).encode())
-        client.send(encode_with_key('loggedin', key))
-        lenofmsg_rtrnd = int(connect.recv(4).decode('utf-8'))
-        print(str(decode_with_key(client.recv(lenofmsg_rtrnd), key)))
-    def do_WHOAMI(self, arg):
-        lenofmsg = str(len(str('WHOAMI').encode()))
-        lenofmsg = ('0' * (4-len(lenofmsg))) + str(lenofmsg)
-        client.send(str(lenofmsg).encode())
-        client.send(encode_with_key('WHOAMI', key))
-        lenofmsg_rtrnd = int(connect.recv(4).decode('utf-8'))
-        print(str(decode_with_key(client.recv(lenofmsg_rtrnd), key)))'''
+
+#print([l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")][:1], [[(s.connect(('8.8.8.8', 53)), s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]]) if l][0][0])
 
 def encode_with_key(string, key):#Encrypting and decrypting
     list_of_numbers = ''

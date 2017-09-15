@@ -1,13 +1,12 @@
 #FOR PYTHON 3
 __version__ = '0.1'
-import socket, cmd, getpass, os
+import socket, cmd, getpass
 
-# replace encoding with aes MI
-# add connect back feature MI
-# add argparse MI
-# add os.system LI
-# so_reuseaddr NI
-# do_while NI
+# Things I learned:
+# refactoring, versions, and '__main__'
+# cmd module and class
+# overriding class methods
+# getpass.getuser()
 
 def encode_with_key(string, key):#Encrypting and decrypting
     list_of_numbers = ''
@@ -49,13 +48,12 @@ class recv_commands(cmd.Cmd):
 
 def main():
     #Setting up
-    #CLEAR UP MAIN FUNC
     server = socket.socket()
     ip = '127.0.0.1'
     port = 6000
     server.bind((ip, port))
     server.listen(1)
-    '''while True:#For multiple requests
+    while True:#For multiple requests
         connect, addr = server.accept()
         lenofmsg = int(connect.recv(2).decode('utf-8'))
         key = round(int(round(int(connect.recv(lenofmsg).decode('utf-8'))**(1/2))))#Sqrt of key
@@ -67,20 +65,7 @@ def main():
             print('message recvd', msg_recvd)
             continue_loop = recv_commands(key, connect).onecmd(msg_recvd)
         print('Bye')
-        connect.close()'''
-    #!!!so_reuseaddr!!!
-    connect, addr = server.accept()
-    lenofmsg = int(connect.recv(2).decode('utf-8'))
-    key = round(int(round(int(connect.recv(lenofmsg).decode('utf-8'))**(1/2))))#Sqrt of key
-    print('key', key)
-    continue_loop = 1#Stopping the loop uses this var
-    while continue_loop:#investigate do while
-        lenofmsg = int(connect.recv(5).decode('utf-8'))#Standard protocol for my project
-        msg_recvd = str(decode_with_key(connect.recv(lenofmsg), key))#Then receive real msg
-        print('message recvd', msg_recvd)
-        continue_loop = recv_commands(key, connect).onecmd(msg_recvd)
-    print('Bye')
-    connect.close()
+        connect.close()
 
 if __name__ == '__main__':
     main()
