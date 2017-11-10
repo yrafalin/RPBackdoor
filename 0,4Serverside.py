@@ -127,7 +127,7 @@ class recv_commands(cmd.Cmd):
         else:
             ports_to_scan = ['19', '22', '23', '53', '80', '115', '123', '194']
         avail_ports = []
-        for portcheck in port_to_scan:
+        for portcheck in ports_to_scan:
             client = socket.socket()
             try:
                 client.connect(('127.0.0.1', portcheck))
