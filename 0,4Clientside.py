@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #FOR PYTHON 3
-__version__ = '0.3'
+__version__ = '0.4'
 import socket, random, cmd, argparse
 from os import system
 
