@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #FOR PYTHON 3
-__version__ = '0.3'
+__version__ = '0.4'
 import socket, cmd, getpass, os, argparse, time, platform, subprocess
 
 IP = '127.0.0.1'
