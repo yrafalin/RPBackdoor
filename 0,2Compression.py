@@ -21,7 +21,7 @@ def remove_overlaps(positions, length):
 
 
 def arrange_by_savings(repetitions_format_dict):
-    corresponding_number_of_bytes = {}  # Plug the word in to find how many bytes replacing it will save
+    corresponding_number_of_bytes = {}  # Plug the word in to find how many bytes will be saved by replacing it
     order_of_savings = []
 
     for word in repetitions_format_dict:
