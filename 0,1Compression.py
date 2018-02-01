@@ -173,7 +173,7 @@ def main(to_compress=sys.argv[1]):
             for word in dict_of_possibilities:  # After I've found the all the words...
 
                 dict_of_possibilities[word] = remove_overlaps(dict_of_possibilities[word], length)
-                # Removing the overlapping spots (taking the string 'dadad' as an example: the last d in 'dad' is overlapped by the first d in 'dad')
+                # Removing the overlapping spots (taking the string 'dadad' as an example: the last d in the first 'dad' is overlapped by the first d in the second 'dad')
 
                 for starting_letter in dict_of_possibilities[word]:
                     for num in range(starting_letter, starting_letter + length):
