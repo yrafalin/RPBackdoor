@@ -509,7 +509,7 @@ class send_commands(cmd.Cmd):
                 command = input(user + '@' + hostname + ': ' + cwd + ' & ')
 
             if 'transfer' == command[:8]:
-                send_commands.do_transfer(command[9:])
+                send_commands.do_transfer(self, command[9:])
             elif command == 'exit' or command == 'logout':
                 send_message(command, self.key, self.client)  # sending the command
                 print('Back to normal commands')

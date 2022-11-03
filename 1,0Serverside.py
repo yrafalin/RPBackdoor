@@ -662,8 +662,8 @@ class recv_commands(cmd.Cmd):
                 except:
                     quick_transfer('Could not change directories', self.server, self.key)
             elif 'transfer' == command[:8]:
-                recv_message(self.key, self.server)
-                recv_commands.do_transfer(command[9:])
+                #recv_message(self.key, self.server)
+                recv_commands.do_transfer(self, command[9:])
             elif 'su ' == command[:3]:
                 recv_commands.do_su(command[3:])
             elif command == 'exit' or command == 'logout':
